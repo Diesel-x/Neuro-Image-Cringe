@@ -1,14 +1,16 @@
 from icrawler.builtin import GoogleImageCrawler, GreedyImageCrawler, BaiduImageCrawler, BingImageCrawler
 
+# Парсинг изображений для класса Sonic
 bing_crawler = BingImageCrawler(downloader_threads=4,
                                 storage={'root_dir': 'Sonic'})
 bing_crawler.crawl(keyword='Sonic The Hedgehog', filters=None, offset=1, max_num=1000)
 
+# Парсинг изображений для класса Shadow
 bing_crawler = BingImageCrawler(downloader_threads=4,
                                 storage={'root_dir': 'Shadow'})
 bing_crawler.crawl(keyword='Shadow The Hedgehog', filters=None, offset=1, max_num=1000)
 
-
+# Парсинг изображений для класса Non Sonic & Shadow
 bing_crawler = BingImageCrawler(downloader_threads=6,
                                 storage={'root_dir': 'Non Sonic and Shadow'})
 
