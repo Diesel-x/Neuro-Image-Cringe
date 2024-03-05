@@ -1,35 +1,25 @@
-# # from icrawler.builtin import GoogleImageCrawler
+from icrawler.builtin import GoogleImageCrawler, GreedyImageCrawler, BaiduImageCrawler, BingImageCrawler
 
-# # # google_crawler = GoogleImageCrawler(storage={'root_dir': 'Sonic'})
-# # # google_crawler.crawl(keyword='Sonic The Hedgehog', max_num=200)
+bing_crawler = BingImageCrawler(downloader_threads=4,
+                                storage={'root_dir': 'Sonic'})
+bing_crawler.crawl(keyword='Sonic The Hedgehog', filters=None, offset=1, max_num=1000)
 
-# from icrawler.builtin import GreedyImageCrawler
-
-# greedy_crawler = GreedyImageCrawler(storage={'root_dir': 'Sonic'})
-# greedy_crawler.crawl(domains='https://yandex.ru/images/search?text=Sonic', max_num=50,
-#                      min_size=None, max_size=None)
-
-
-import pandas as pd
-from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver import ChromeOptions
-
-options = ChromeOptions()
-options.add_argument("--headless=new")
-driver = webdriver.Chrome(options=options)
-
-driver.get("https://yandex.ru/images/search?from=tabbar&text=Sonic")
-results = []
-content = driver.page_source
-soup = BeautifulSoup(content, "html.parser")
+bing_crawler = BingImageCrawler(downloader_threads=4,
+                                storage={'root_dir': 'Shadow'})
+bing_crawler.crawl(keyword='Shadow The Hedgehog', filters=None, offset=1, max_num=1000)
 
 
-def parse_image_urls(classes, location, source):
-    for a in soup.findAll(attrs={"class": classes}):
-        name = a.find(location)
-        if name not in results:
-            results.append(name.get(source))
+bing_crawler = BingImageCrawler(downloader_threads=6,
+                                storage={'root_dir': 'Non Sonic and Shadow'})
 
-
-parse_image_urls("s-item__image-wrapper image-treatment", "img", "src")
+bing_crawler.crawl(keyword='Amy Rose', filters=None, file_idx_offset=0, max_num=500)
+bing_crawler.crawl(keyword='knuckles The Echidna', filters=None, file_idx_offset='auto', max_num=500)
+bing_crawler.crawl(keyword='Goku', filters=None, file_idx_offset='auto', max_num=500)
+bing_crawler.crawl(keyword='Super Sayan', filters=None, file_idx_offset='auto', max_num=500)
+bing_crawler.crawl(keyword='Pokemons', filters=None, file_idx_offset='auto', max_num=500)
+bing_crawler.crawl(keyword='Blue Pokemon', filters=None, file_idx_offset='auto', max_num=500)
+bing_crawler.crawl(keyword='Black Pokemon', filters=None, file_idx_offset='auto', max_num=500)
+bing_crawler.crawl(keyword='Silver The hedgehog', filters=None, file_idx_offset='auto', max_num=500)
+bing_crawler.crawl(keyword='Tails The Fox', filters=None, file_idx_offset='auto', max_num=500)
+bing_crawler.crawl(keyword='People', filters=None, file_idx_offset='auto', max_num=500)
+bing_crawler.crawl(keyword='Man', filters=None, file_idx_offset='auto', max_num=500)
