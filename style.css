@@ -1,0 +1,56 @@
+html {
+  width: 100%;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  background-image: url(../background.jpg);
+}
+
+body {
+  margin: 0px;
+}
+
+.content {
+  margin: 0px 200px;
+  background-color: rgba(0, 85, 255, 0.653);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  height: 100vh;
+}
+
+button:hover {
+  transform: scale(1.03);
+  border: 1px solid grey;
+}
+button:active {
+  transform: scale(1.01);
+}
+
+p {
+  text-wrap: pretty;
+  color: white;
+}
+
+input {
+  display: none;
+}
+
+img {
+  display: none;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.predictionResult {
+  background-color: rgba(1, 16, 46, 0.839);
+  border-radius: 10px;
+  padding: 0, 10px;
+}
+
+button {
+  background-color: rgba(1, 16, 46, 0.839);
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
